@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=main
+comment1.params=
+comment1.target=main()
+comment1.text=\r\n\ Creates\ new\ form\ main\r\n
+comment2.params=
+comment2.target=void\ initComponents()
+comment2.text=\r\n\ This\ method\ is\ called\ from\ within\ the\ constructor\ to\ initialize\ the\ form.\r\n\ WARNING\:\ Do\ NOT\ modify\ this\ code.\ The\ content\ of\ this\ method\ is\ always\r\n\ regenerated\ by\ the\ Form\ Editor.\r\n
+comment3.params=evt
+comment3.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment4.params=evt
+comment4.target=void\ jTextField2ActionPerformed(java.awt.event.ActionEvent)
+comment5.params=args
+comment5.target=void\ main(java.lang.String[])
+comment5.text=\r\n\ @param\ args\ the\ command\ line\ arguments\r\n
+numComments=6

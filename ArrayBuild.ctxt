@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=ArrayBuild
+comment1.params=
+comment1.target=ArrayBuild()
+comment2.params=file
+comment2.target=void\ build(java.lang.String)
+comment3.params=str
+comment3.target=int\ search(java.lang.String)
+comment4.params=array
+comment4.target=void\ sort(java.lang.String[])
+comment5.params=index\ ele
+comment5.target=java.lang.String[]\ insert(int,\ java.lang.String)
+comment6.params=file
+comment6.target=void\ update(java.lang.String)
+numComments=7

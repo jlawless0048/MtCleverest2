@@ -1,0 +1,12 @@
+snow
+rain
+rainfall
+cold
+chilly
+hot
+humid
+sunny
+cloudy
+snowy
+snowfall
+precipitation

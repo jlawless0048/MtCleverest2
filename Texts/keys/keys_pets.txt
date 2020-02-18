@@ -1,0 +1,15 @@
+cat
+dog
+gecko
+puppy
+kitten
+kitty
+hedgehog
+ferret
+fish
+goldfish
+gold fish
+guinea pig
+chinchilla
+lizard
+hamster

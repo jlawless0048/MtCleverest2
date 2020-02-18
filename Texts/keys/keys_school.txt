@@ -1,0 +1,11 @@
+school
+grades
+grade
+class
+classroom
+teacher
+teachers
+student
+students
+math
+science
