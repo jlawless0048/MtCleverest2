@@ -4,11 +4,15 @@
  * @author Josh Lawless
  */
 import java.io.*;
+import java.util.*;
 public class main extends javax.swing.JFrame {
     public main() throws IOException , InterruptedException {
         initComponents();
     }
-
+    public static void talk() {
+        System.out.println(jTextField2.getText());
+        jTextField2.setText("");
+    }
     @SuppressWarnings("unchecked")
     private void initComponents() {
 
@@ -63,11 +67,13 @@ public class main extends javax.swing.JFrame {
         pack();
     }                     
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {  
+        talk();
     }                                           
 
     public static void main(String args[]) throws IOException , InterruptedException {
-
+ 
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -92,7 +98,7 @@ public class main extends javax.swing.JFrame {
         catch(Exception e){
             System.out.print("ucky");
         }
-        }) ;
+        });         
     }
     
     public class CustomOutputStream extends OutputStream {
@@ -111,5 +117,5 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField2;
+    private static javax.swing.JTextField jTextField2;
 }
