@@ -21,7 +21,7 @@ public class pyJavaWiki{
         while(sksks.hasNextLine()){
                 sum = sum + sksks.nextLine();
            }
-           output.delete();
-            return sum;
+        output.delete();
+        return sum;
     }
 }
