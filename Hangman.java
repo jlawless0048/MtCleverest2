@@ -141,13 +141,13 @@ public class Hangman
     
     while (true){
         while (true){
-                    System.out.println("");
-                    System.out.print("Select a letter: ");
-                    guess = "d";
-                    System.out.println(guess);
-                    guess = guess.trim();
-                    guess = guess.toLowerCase();
-                    System.out.println("");
+            System.out.println("");
+            System.out.print("Select a letter: ");
+            guess = "d";
+            System.out.println(guess);
+            guess = guess.trim();
+            guess = guess.toLowerCase();
+            System.out.println("");
             if (guess.equals("a") || guess.equals("b") || guess.equals("c") || guess.equals("d") ||
                 guess.equals("e") || guess.equals("f") || guess.equals("g") || guess.equals("h") ||
                 guess.equals("i") || guess.equals("j") || guess.equals("k") || guess.equals("l") ||
