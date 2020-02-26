@@ -9,7 +9,6 @@ public class main extends javax.swing.JFrame {
         initComponents();
     }
     public static void talk() throws IOException , InterruptedException{
-        Scanner scan = new Scanner(System.in); 
         String res;
         String str = jTextField2.getText();
         jTextField2.setText("");
