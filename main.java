@@ -1,12 +1,13 @@
 /**
  *
- * @author Josh Lawless
+ * @author Josh Lawless , Hunter Stewart, Drew Malapanes
  */
 import java.io.*;
 import java.util.*;
 public class main extends javax.swing.JFrame {
     public main() throws IOException , InterruptedException {
         initComponents();
+        System.out.println("Hi, I'm Mt.Cleverest Jr., I'm not much smarter but I can search Wikipedia if you use the wiki@ command in chat :)");
     }
     public static void talk() throws IOException , InterruptedException{
         String res;
@@ -24,7 +25,10 @@ public class main extends javax.swing.JFrame {
                 res = pyJavaWiki.wiki(word);
             }
         }
-        if(str.equals(" hangman ")){
+        if(str.contains( " cyoa " )){
+            CYOA.startGame();
+        }
+        if(str.contains(" hangman ")){
             Hangman.startGame();
         }
         System.out.println(res);
