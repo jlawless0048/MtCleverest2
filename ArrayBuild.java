@@ -13,16 +13,21 @@ public class ArrayBuild
    public ArrayBuild(){
        logicalSize = 0;
    }
-   public void build(String file) throws IOException { 
+   public ArrayBuild(String file) throws IOException{
+       logicalSize = 0;
+       this.build(file);
+   }
+   public void build(String file) throws IOException{ 
        Scanner reader = new Scanner(new File(file));
        Scanner readerTwo = new Scanner(new File(file)); 
+       
        int arrayCount = 0;
        while(reader.hasNext()){
            reader.nextLine();
            arrayCount++;
        }   
        array = new String[arrayCount];
-       logicalSize = arrayCount;
+       logicalSize = arrayCount - 1;
        int count = 0;
        while (readerTwo.hasNext()){
            String stringuno = readerTwo.nextLine();
@@ -31,31 +36,15 @@ public class ArrayBuild
        }
    }
    public int search(String str){
-       boolean found = false;
        int index = -1;
-       int length = array.length / 2;
-       int oldLength = -1;
-       while (!found){
-            if(oldLength != length){
-                if((str.compareTo(" " + array[length] + " ") == 0 || str.compareTo(" " + array[length] + ".") == 0 || str.compareTo(" " + array[length] + "!") == 0 || str.compareTo(" " + array[length] + "?")== 0 || str.compareTo(" " + array[length] + "-") == 0 || str.compareTo(" " + array[length] + ",") == 0)){
-                    found = true;
-                    index = length;
-                }
-                else if((str.compareTo(" " + array[length] + " ") < 0 || str.compareTo(" " + array[length] + ".") < 0 || str.compareTo(" " + array[length] + "!") < 0 || str.compareTo(" " + array[length] + "?")< 0 || str.compareTo(" " + array[length] + "-") < 0 || str.compareTo(" " + array[length] + ",") < 0)){
-                    length /= 2;
-                }
-                else{
-                    length = (length * 2 + length) / 2;
-                }
-                oldLength = length;
-            }
-            else{
-                break;
-            }
+       for(String element : array){
+           if(str.contains(" " + element + " ") || str.contains(" " + element + ".") || str.contains(" " + element + "!") || str.contains(" " + element + "?") || str.contains(" " + element + "-") || str.contains(" " + element + ",")){
+               index = 1;
+           }
        }
        return index;
-   }
-   public void sort(String[] array){
+       }
+   public void sort(){
         int i, j;  
         String key;
         for (i = 1; i < logicalSize; i++){  
@@ -70,10 +59,10 @@ public class ArrayBuild
    }  
    public String[] insert(int index, String ele){
         logicalSize++;
-        String[] newArray = new String[logicalSize];
-	for(int i = logicalSize; i > index; i--){
-	    newArray[i + 1] = array[i];
-	   } 
+        String[] newArray = new String[logicalSize + 1];
+        for(int i = logicalSize; i > index; i--){
+            newArray[i] = array[i - 1];
+        } 
         newArray[index] = ele;
         return newArray;
    }
@@ -83,5 +72,13 @@ public class ArrayBuild
             filey.write(element);
         }
         filey.close();
+   }
+   public String getRandom(){
+        Random rando = new Random();
+        int randGen = rando.nextInt(this.array.length);
+        return this.array[randGen];
+   }
+   public void setArray(String[] bruh){
+        array = bruh;
    }
 }

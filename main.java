@@ -9,12 +9,72 @@ public class main extends javax.swing.JFrame {
     public main() throws IOException , InterruptedException {
         initComponents();
     }
-    public static void talk() {
-        System.out.println(jTextField2.getText());
+    public static void talk() throws IOException , InterruptedException{
+        Scanner scan = new Scanner(System.in); 
+        String res;
+        String str = jTextField2.getText();
         jTextField2.setText("");
+        System.out.println(str);
+        str = str.trim();
+        str = str.toLowerCase();
+        str = " " + str + " ";
+        res = response(str);
+        System.out.println(res);
+        if(str.equals(" goodbye ")){
+            System.exit(0);
+        }
+    }
+    public static String response(String str) throws IOException{
+        ArrayBuild unknown = new ArrayBuild("Texts/unknown.txt");
+        
+        ArrayBuild[] keys = new ArrayBuild[15];
+        keys[13] = new ArrayBuild("Texts/keys/keys_animals.txt");
+        keys[4] = new ArrayBuild("Texts/keys/keys_bored.txt");
+        keys[5] = new ArrayBuild("Texts/keys/keys_bot.txt");
+        keys[2] = new ArrayBuild("Texts/keys/keys_bye.txt");
+        keys[6] = new ArrayBuild("Texts/keys/keys_family.txt");
+        keys[14] = new ArrayBuild("Texts/keys/keys_filler.txt");
+        keys[7] = new ArrayBuild("Texts/keys/keys_foods.txt");
+        keys[3] = new ArrayBuild("Texts/keys/keys_hello.txt");
+        keys[8] = new ArrayBuild("Texts/keys/keys_holiday.txt");
+        keys[9] = new ArrayBuild("Texts/keys/keys_jackfurmanek (2).txt");
+        keys[1] = new ArrayBuild("Texts/keys/keys_nonoword.txt");
+        keys[10] = new ArrayBuild("Texts/keys/keys_pets.txt");
+        keys[0] = new ArrayBuild("Texts/keys/keys_question.txt");
+        keys[11] = new ArrayBuild("Texts/keys/keys_school.txt");
+        keys[12] = new ArrayBuild("Texts/keys/keys_weather.txt"); 
+        for(int i = 0; i < keys.length; i++){
+            keys[i].sort();
+        }
+        ArrayBuild[] responses = new ArrayBuild[15];
+        responses[13] = new ArrayBuild("Texts/responses/key_animals_response.txt");
+        responses[4] = new ArrayBuild("Texts/responses/key_bored_response.txt");
+        responses[5] = new ArrayBuild("Texts/responses/key_bot_response.txt");
+        responses[2] = new ArrayBuild("Texts/responses/key_bye_response.txt");
+        responses[6] = new ArrayBuild("Texts/responses/key_family_response.txt");
+        responses[14] = new ArrayBuild("Texts/responses/key_filler_response.txt");
+        responses[7] = new ArrayBuild("Texts/responses/key_food_response.txt");
+        responses[3] = new ArrayBuild("Texts/responses/key_hello_response.txt");
+        responses[8] = new ArrayBuild("Texts/responses/key_holiday_response.txt");
+        responses[9] = new ArrayBuild("Texts/responses/key_jackfurmanek_response.txt");
+        responses[1] = new ArrayBuild("Texts/responses/key_nonoword_response.txt");
+        responses[10] = new ArrayBuild("Texts/responses/key_pets_response.txt");
+        responses[0] = new ArrayBuild("Texts/responses/key_question_response.txt");
+        responses[11] = new ArrayBuild("Texts/responses/key_school_response.txt");
+        responses[12] = new ArrayBuild("Texts/responses/key_weather_response.txt");
+        ArrayBuild random = new ArrayBuild("Texts/responses/random.txt");
+        
+        for(int i = 0; i < keys.length; i++){
+            if(keys[i].search(str) > -1){
+                return responses[i].getRandom();
+            }
+        }
+        unknown.setArray(unknown.insert(0, str));
+        unknown.update("Texts/unknown.txt");
+        return random.getRandom();
     }
     @SuppressWarnings("unchecked")
-    private void initComponents() {
+    private void initComponents() throws IOException , InterruptedException{
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -68,7 +128,12 @@ public class main extends javax.swing.JFrame {
     }                     
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {  
-        talk();
+        try{
+            talk();
+        }
+        catch(InterruptedException  | IOException ex){
+            System.out.println("uh oh");
+        }
     }                                           
 
     public static void main(String args[]) throws IOException , InterruptedException {
@@ -104,12 +169,12 @@ public class main extends javax.swing.JFrame {
     public class CustomOutputStream extends OutputStream {
         private javax.swing.JTextArea textArea;
      
-        public CustomOutputStream(javax.swing.JTextArea textArea) {
+        public CustomOutputStream(javax.swing.JTextArea textArea) throws IOException , InterruptedException{
             this.textArea = textArea;
         }
      
         @Override
-        public void write(int b) throws IOException {
+        public void write(int b) {
             textArea.append(String.valueOf((char)b));
             textArea.setCaretPosition(textArea.getDocument().getLength());
         }
