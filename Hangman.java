@@ -12,21 +12,18 @@ import java.io.*;
 
 public class Hangman
 {
-    public Hangman(){
-    }
-    public void startGame()throws IOException{
+    public static void startGame()throws IOException{
     int count2 = 0;
     int count3 = 0;
     int count4 = 0;
     int count5 = 0;
     int it = 0;
     String guess;
-        
-    Scanner scanboi = new Scanner(System.in);
+    
     Random randy = new Random();
         
-    Scanner reader = new Scanner(new File("texts/keys/keys.txt"));
-    Scanner readerTwo = new Scanner(new File("texts/keys/keys.txt")); 
+    Scanner reader = new Scanner(new File("Texts/keys/keys.txt"));
+    Scanner readerTwo = new Scanner(new File("Texts/keys/keys.txt")); 
     int arrayCount = 0;
     
     while(reader.hasNext()){
@@ -144,20 +141,13 @@ public class Hangman
     
     while (true){
         while (true){
-            while (true){
-                try{
                     System.out.println("");
                     System.out.print("Select a letter: ");
-                    guess = scanboi.nextLine();
+                    guess = "d";
+                    System.out.println(guess);
                     guess = guess.trim();
                     guess = guess.toLowerCase();
                     System.out.println("");
-                    break;
-                } catch (Exception e){
-                    System.out.println("That's not valid!");
-                    scanboi.nextLine();
-                }
-            }
             if (guess.equals("a") || guess.equals("b") || guess.equals("c") || guess.equals("d") ||
                 guess.equals("e") || guess.equals("f") || guess.equals("g") || guess.equals("h") ||
                 guess.equals("i") || guess.equals("j") || guess.equals("k") || guess.equals("l") ||

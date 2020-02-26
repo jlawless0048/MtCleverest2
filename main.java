@@ -22,6 +22,9 @@ public class main extends javax.swing.JFrame {
             word = word.trim();
             res = pyJavaWiki.wiki(word);
         }
+        if(str.equals(" hangman ")){
+            Hangman.startGame();
+        }
         System.out.println(res);
         if(str.equals(" goodbye ")){
             System.exit(0);
