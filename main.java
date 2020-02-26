@@ -18,6 +18,11 @@ public class main extends javax.swing.JFrame {
         str = str.toLowerCase();
         str = " " + str + " ";
         res = response(str);
+        if(str.substring(0,7).equals(" wiki@ ")){
+            String word = str.substring(6);
+            word = word.trim();
+            res = pyJavaWiki.wiki(word);
+        }
         System.out.println(res);
         if(str.equals(" goodbye ")){
             System.exit(0);
