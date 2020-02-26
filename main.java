@@ -17,10 +17,12 @@ public class main extends javax.swing.JFrame {
         str = str.toLowerCase();
         str = " " + str + " ";
         res = response(str);
-        if(str.substring(0,7).equals(" wiki@ ")){
-            String word = str.substring(6);
-            word = word.trim();
-            res = pyJavaWiki.wiki(word);
+        if(str.length() > 7){
+            if(str.substring(0,7).equals(" wiki@ ")){
+                String word = str.substring(6);
+                word = word.trim();
+                res = pyJavaWiki.wiki(word);
+            }
         }
         if(str.equals(" hangman ")){
             Hangman.startGame();
