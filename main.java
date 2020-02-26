@@ -22,7 +22,16 @@ public class main extends javax.swing.JFrame {
             if(str.substring(0,7).equals(" wiki@ ")){
                 String word = str.substring(6);
                 word = word.trim();
-                res = pyJavaWiki.wiki(word);
+                String newWord = "";
+                for(int i = 0; i < word.length(); i++){
+                    
+                    if(word.substring(i, i + 1).equals(" ")){
+                    }
+                    else{
+                        newWord += word.substring(i, i+1);
+                    }
+                }
+                res = pyJavaWiki.wiki(newWord);
             }
         }
         if(str.contains( " cyoa " )){

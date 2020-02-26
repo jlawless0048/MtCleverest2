@@ -10,3 +10,6 @@ cloudy
 snowy
 snowfall
 precipitation
+arid
+snowy
+hail
