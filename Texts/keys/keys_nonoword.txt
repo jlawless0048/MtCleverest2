@@ -18,3 +18,7 @@ jack furmanek
 nigger
 nigga
 faggot
+<<<<<<< HEAD
+=======
+pussy
+>>>>>>> 8c8dad39f5321840d1f38dc1f37500b62553e640

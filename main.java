@@ -9,7 +9,6 @@ public class main extends javax.swing.JFrame {
         initComponents();
     }
     public static void talk() throws IOException , InterruptedException{
-        Scanner scan = new Scanner(System.in); 
         String res;
         String str = jTextField2.getText();
         jTextField2.setText("");
@@ -18,6 +17,25 @@ public class main extends javax.swing.JFrame {
         str = str.toLowerCase();
         str = " " + str + " ";
         res = response(str);
+        if(str.length() > 7){
+            if(str.substring(0,7).equals(" wiki@ ")){
+                String word = str.substring(6);
+                word = word.trim();
+                String newWord = "";
+                for(int i = 0; i < word.length(); i++){
+                    
+                    if(word.substring(i, i + 1).equals(" ")){
+                    }
+                    else{
+                        newWord += word.substring(i, i+1);
+                    }
+                }
+                res = pyJavaWiki.wiki(newWord);
+            }
+        }
+        if(str.equals(" hangman ")){
+            Hangman.startGame();
+        }
         System.out.println(res);
         if(str.equals(" goodbye ")){
             System.exit(0);
